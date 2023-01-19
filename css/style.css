@@ -88,3 +88,33 @@ body {
     background-repeat: no-repeat;
     background-size: cover;
   }
+
+  nav {
+    margin-top: 40px;
+    padding: 24px;
+    text-align: center;
+    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+  }
+  .pM{
+    margin-top: 150px;
+  }
+  .shadow{
+    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+  }
+  nav a {
+    transition: 0.3s ease;
+    color: white;
+    font-size: 20px;
+    text-decoration: none;
+    border-top: 4px solid transparent;
+    border-bottom: 4px solid transparent;
+    padding: 20px 0;
+    margin: 0 5px;
+    font-size: 17px;
+  }
+  nav a:hover {
+    border-top: 4px solid white;
+    border-bottom: 4px solid white;
+    padding: 6px 0; 
+  }
+

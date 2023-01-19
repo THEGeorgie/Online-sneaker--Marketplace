@@ -1,7 +1,7 @@
-<!DOCTYPE html>
-    <?php 
+<?php 
         session_start();
-    ?>
+?>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -37,7 +37,7 @@
                                 <a href="login.php" class="nav-link text-white">【Ｌｏｇｉｎ】</a>
                             </li>
                             <li class="nav-item">
-                                <a href="signup.php" class="nav-link text-white">【Ｊｏｉｎ】</a>
+                                <a href="register.php" class="nav-link text-white">【Ｊｏｉｎ】</a>
                             </li>
                         </ul>
                     </div>
