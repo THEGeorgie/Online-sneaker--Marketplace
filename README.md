@@ -1,2 +1,2 @@
 # Online-sneaker--Marketplace
-ONline Tržnica narejena v php
+Online Tržnica narejena v php
