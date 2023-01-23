@@ -21,7 +21,7 @@
 		<div class="wave"></div>
 		<nav class="navbar fixed-top navbar-expand-lg navbar-dark p-md-3">
 			<div class="container-fluid">
-				<a href="main.php" class="navbar-brand fs-4">【Ｓｎｅａｋｅｒ Ｈａｖｅｎ】</a>
+				<a href="index.php" class="navbar-brand fs-4">【Ｓｎｅａｋｅｒ Ｈａｖｅｎ】</a>
 			</div>
 		</nav>
 
@@ -55,8 +55,7 @@
 							?>
 							<a href="register.php">Not a member?</a>
 							<br>
-							<button class="btn btn-outline-light btn-block my-3" name="login"><span
-									class="glyphicon glyphicon-log-in"></span>【Ｌｏｇｉｎ】</button>
+							<button class="btn btn-outline-light btn-block my-3" name="login">【Ｌｏｇｉｎ】</button>
 						</form>
 					</div>
 				</div>

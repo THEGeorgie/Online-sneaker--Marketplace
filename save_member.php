@@ -23,8 +23,9 @@
     		if($stmt->execute()){
     			//setting a 'success' session to save our insertion success message.
     			$_SESSION['success'] = "Successfully created an account";
+				
     			//redirecting to the index.php 
-    			header('location: main.php');
+    			header('location: login.php');
     		}
     	}
 ?>

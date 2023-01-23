@@ -22,7 +22,7 @@
 		<div class="wave"></div>
 		<nav class="navbar fixed-top navbar-expand-lg navbar-dark p-md-3">
 			<div class="container">
-				<a href="main.php" class="navbar-brand fs-4">【Ｓｎｅａｋｅｒ Ｈａｖｅｎ】</a>
+				<a href="index.php" class="navbar-brand fs-4">【Ｓｎｅａｋｅｒ Ｈａｖｅｎ】</a>
 				<button type="button" class="navbar-toggler" data-bs-target="#navbarNav" data-bs-toggle="collapse"
 					aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle Navbar">
 					<span class="navbar-toggler-icon"></span>

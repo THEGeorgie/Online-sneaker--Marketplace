@@ -21,7 +21,7 @@
 		<div class="wave"></div>
 		<nav class="navbar fixed-top navbar-expand-lg navbar-dark p-md-3">
 			<div class="container-fluid">
-				<a href="main.php" class="navbar-brand fs-4">【Ｓｎｅａｋｅｒ Ｈａｖｅｎ】</a>
+				<a href="home.php" class="navbar-brand fs-4">【Ｓｎｅａｋｅｒ Ｈａｖｅｎ】</a>
 				<button type="button" class="navbar-toggler" data-bs-target="#navbarNav" data-bs-toggle="collapse"
 					aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle Navbar">
 					<span class="navbar-toggler-icon"></span>
@@ -30,7 +30,12 @@
 					<div class="mx-auto"></div>
 					<ul class="navbar-nav">
 						<li class="nav-item">
-							<a href="login.php" class="nav-link text-white">【Ｌｏｇｏｕｔ】</a>
+							<a href="index.php?Logout" class="nav-link text-white">【Ｌｏｇｏｕｔ】</a>
+							<?php 
+								if (isset($_GET['Logout'])) {
+									unset($_SESSION['is_seller']);
+								}
+							?>
 						</li>
 						<li class="nav-item">
 							<a href="profile.php" class="nav-link text-white"><?php echo($_SESSION['name']);?></a>
@@ -42,7 +47,7 @@
 
 		<section class="p-5 pM">
 			<div class="container shadow">
-
+					<?php echo($_SESSION['is_seller']);?>
 			</div>
 		</section>
 	</div>
