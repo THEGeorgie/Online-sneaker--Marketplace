@@ -55,8 +55,7 @@
 							?>
 							<a href="register.php">Not a member?</a>
 							<br>
-							<button class="btn btn-outline-light btn-block my-3" name="login"><span
-									class="glyphicon glyphicon-log-in"></span>【Ｌｏｇｉｎ】</button>
+							<button class="btn btn-outline-light btn-block my-3" name="login">【Ｌｏｇｉｎ】</button>
 						</form>
 					</div>
 				</div>
