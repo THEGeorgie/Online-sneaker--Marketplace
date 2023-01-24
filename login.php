@@ -21,7 +21,7 @@
 		<div class="wave"></div>
 		<nav class="navbar fixed-top navbar-expand-lg navbar-dark p-md-3">
 			<div class="container-fluid">
-				<a href="main.php" class="navbar-brand fs-4">【Ｓｎｅａｋｅｒ Ｈａｖｅｎ】</a>
+				<a href="index.php" class="navbar-brand fs-4">【Ｓｎｅａｋｅｒ Ｈａｖｅｎ】</a>
 			</div>
 		</nav>
 

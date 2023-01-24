@@ -22,7 +22,7 @@
 		<div class="wave"></div>
 		<nav class="navbar fixed-top navbar-expand-lg navbar-dark p-md-3">
 			<div class="container">
-				<a href="main.php" class="navbar-brand fs-4">【Ｓｎｅａｋｅｒ Ｈａｖｅｎ】</a>
+				<a href="index.php" class="navbar-brand fs-4">【Ｓｎｅａｋｅｒ Ｈａｖｅｎ】</a>
 				<button type="button" class="navbar-toggler" data-bs-target="#navbarNav" data-bs-toggle="collapse"
 					aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle Navbar">
 					<span class="navbar-toggler-icon"></span>
@@ -39,6 +39,10 @@
 						<div class="form-group">
 							<label>Username</label>
 							<input type="text" name="username" class="form-control" required="required" />
+						</div>
+						<div class="form-group">
+							<label>Email</label>
+							<input type="text" name="email" class="form-control" required="required" />
 						</div>
 						<div class="form-group">
 							<label>Password</label>
@@ -72,7 +76,7 @@
 						<?php
     					//checking if the session 'success' is set.
     					if(ISSET($_SESSION['success'])){
-    				?>
+    					?>
 						<!-- Display regostration success message -->
 						<div class="alert alert-success">
 							<?php echo $_SESSION['success']; header('location: login.php');?>
@@ -81,7 +85,18 @@
     					//Unsetting the 'success' session after displaying the message. 
     					unset($_SESSION['success']);
     					}
-    				?>
+    					?>
+						<?php
+									//checking if the session 'error' is set. Erro session is the message if the 'Username' and 'Password' is not valid.
+									if(ISSET($_SESSION['error'])){
+							?>
+							<!-- Display Login Error message -->
+							<div class="alert alert-danger"><?php echo $_SESSION['error']?></div>
+							<?php
+									//Unsetting the 'error' session after displaying the message. 
+									unset($_SESSION['error']);
+									}
+							?>
 						<button class="btn btn-primary btn-block" name="register"><span
 								class="glyphicon glyphicon-save"></span> Register</button>
 					</form>
