@@ -41,6 +41,10 @@
 							<input type="text" name="username" class="form-control" required="required" />
 						</div>
 						<div class="form-group">
+							<label>Email</label>
+							<input type="text" name="email" class="form-control" required="required" />
+						</div>
+						<div class="form-group">
 							<label>Password</label>
 							<input type="password" name="password" class="form-control" required="required" />
 						</div>
@@ -72,7 +76,7 @@
 						<?php
     					//checking if the session 'success' is set.
     					if(ISSET($_SESSION['success'])){
-    				?>
+    					?>
 						<!-- Display regostration success message -->
 						<div class="alert alert-success">
 							<?php echo $_SESSION['success']; header('location: login.php');?>
@@ -81,7 +85,18 @@
     					//Unsetting the 'success' session after displaying the message. 
     					unset($_SESSION['success']);
     					}
-    				?>
+    					?>
+						<?php
+									//checking if the session 'error' is set. Erro session is the message if the 'Username' and 'Password' is not valid.
+									if(ISSET($_SESSION['error'])){
+							?>
+							<!-- Display Login Error message -->
+							<div class="alert alert-danger"><?php echo $_SESSION['error']?></div>
+							<?php
+									//Unsetting the 'error' session after displaying the message. 
+									unset($_SESSION['error']);
+									}
+							?>
 						<button class="btn btn-primary btn-block" name="register"><span
 								class="glyphicon glyphicon-save"></span> Register</button>
 					</form>

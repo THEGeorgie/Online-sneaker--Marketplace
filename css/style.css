@@ -116,5 +116,12 @@ body {
     border-top: 4px solid white;
     border-bottom: 4px solid white;
     padding: 6px 0; 
-  }
+}
+
+.panel { display: none; }
+.show { display: block; }
+.button { text-transform: uppercase; }
+.button:hover { cursor: pointer; background-color: #fffff0; }
+
+.navbar-nav > li > .dropdown { background-color: #FF0000; }
 

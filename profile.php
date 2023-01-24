@@ -8,7 +8,7 @@
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="js/app.js"></script>
+	<script src="js/app.js"></script>
 	<link rel="stylesheet" href="css/style.css">
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
 		integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
@@ -31,12 +31,7 @@
 					<div class="mx-auto"></div>
 					<ul class="navbar-nav">
 						<li class="nav-item">
-							<a href="index.php?Logout" class="nav-link text-white">【Ｌｏｇｏｕｔ】</a>
-							<?php 
-								if (isset($_GET['Logout'])) {
-									unset($_SESSION['is_seller']);
-								}
-							?>
+							<a href="login.php" class="nav-link text-white">【Ｌｏｇｏｕｔ】</a>
 						</li>
 						<li class="nav-item">
 							<a href="profile.php" class="nav-link text-white"><?php echo($_SESSION['name']);?></a>
@@ -48,16 +43,33 @@
 
 		<section class="p-5 pM">
 			<div class="container shadow">
-                <form class="text-center" method="GET">
-                    <?php 
-						if ($_SESSION['is_seller'] == 1) {
-							echo("<button class='btn btn-outline-light btn-block my-3 btn-create-post' name='create_post' onclick='loadHtml('post-conatiner', 'create_post.html')'>Create post</button>");
-						}
-					?> 
-                </form>
-                <div class="container-lg" id="post-conatiner">
-                    
-                </div>
+				<form class="text-center" method="GET">
+					<?php 
+						// if ($_SESSION['is_seller'] == 1) {
+						// 	echo("<button class='btn btn-outline-light btn-block my-3 btn-create-post' name='create_post' onclick='loadHtml('post-conatiner', 'create_post.html')'>Create post</button>");
+						// }
+					?>
+					<!-- <a href="#" class='btn btn-outline-light btn-block my-3 btn-create-post' name='create_post' onclick='includeHTML("html/create_post.html")'>Create post></a> -->
+
+
+				</form>
+				<div class="container-lg" id="post-conatiner">
+					<div class="buttons">
+						<button data-id="myorders" class="button">Orders</button>
+						<button data-id="myproducts" class="button">Products</button>
+						<button data-id="mysupplier" class="button">Supplier</button>
+					</div>
+
+					<div class="panel" id="myorders">
+						<p>Laptop, Earphone</p>
+					</div>
+					<div class="panel" id="myproducts">
+						<p>Earphone, smart watch</p>
+					</div>
+					<div class="panel" id="mysupplier">
+						<p>Amazon, E-kart</p>
+					</div>
+				</div>
 			</div>
 		</section>
 	</div>

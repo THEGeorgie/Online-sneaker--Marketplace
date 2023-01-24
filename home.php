@@ -30,24 +30,27 @@
 					<div class="mx-auto"></div>
 					<ul class="navbar-nav">
 						<li class="nav-item">
-							<a href="index.php?Logout" class="nav-link text-white">【Ｌｏｇｏｕｔ】</a>
-							<?php 
-								if (isset($_GET['Logout'])) {
-									unset($_SESSION['is_seller']);
-								}
-							?>
-						</li>
-						<li class="nav-item">
-							<a href="profile.php" class="nav-link text-white"><?php echo($_SESSION['name']);?></a>
+							<a href="login.php" class="nav-link text-white">【Ｌｏｇｏｕｔ】</a>
+						</li>	
+						<li class="nav-item dropdown">
+							<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+								data-bs-toggle="dropdown" aria-expanded="false">
+								<?php echo($_SESSION['name']);?>
+							</a>
+							<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+								<li><a class="dropdown-item " href="#">Create post</a></li>
+								<li><a class="dropdown-item" href="profile.php">Profile</a></li>
+							</ul>
 						</li>
 					</ul>
+					<div class="mx-4"></div>
 				</div>
 			</div>
 		</nav>
 
 		<section class="p-5 pM">
 			<div class="container shadow">
-					<?php echo($_SESSION['is_seller']);?>
+
 			</div>
 		</section>
 	</div>
