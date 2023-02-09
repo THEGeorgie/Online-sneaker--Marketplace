@@ -16,33 +16,9 @@
             <div class="wave"></div>
             <div class="wave"></div>
             <div class="wave"></div>      
-            <nav class="navbar fixed-top navbar-expand-lg navbar-dark p-md-3">
-                <div class="container">
-                    <a href="index.php" class="navbar-brand fs-4">【Ｓｎｅａｋｅｒ Ｈａｖｅｎ】</a>
-                    <button
-                        type="button"
-                        class="navbar-toggler"
-                        data-bs-target="#navbarNav"
-                        data-bs-toggle="collapse"
-                        aria-controls="navbarNav"
-                        aria-expanded="false"
-                        aria-label="Toggle Navbar"
-                    >
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-                    <div class="collapse navbar-collapse" id="navbarNav">
-                        <div class="mx-auto"></div>
-                        <ul class="navbar-nav">
-                            <li class="nav-item">
-                                <a href="login.php" class="nav-link text-white">【Ｌｏｇｉｎ】</a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="register.php" class="nav-link text-white">【Ｊｏｉｎ】</a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </nav>
+            <?php
+                require("header.php");
+            ?>
         <br>
         <div class="container my-5">
             

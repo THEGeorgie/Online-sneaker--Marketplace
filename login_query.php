@@ -19,6 +19,8 @@
     		if($count > 0){
 				$name = $_POST['username'];
 				$_SESSION['name']= $name;
+				$_SESSION['loggedin'] = true;
+				$_SESSION['seller'] = true;
     			header('location:home.php');
     		}else{
 
@@ -33,8 +35,11 @@
 				if ($count1 > 0) {
 					$name = $_POST['username'];
 					$_SESSION['name']= $name;
+					$_SESSION['loggedin'] = true;
+					$_SESSION['seller'] = false;
     				header('location:home.php');
 				}else {
+					$_SESSION['loggedin'] = false;
 					$_SESSION['error'] = "Invalid username or password";
     				header('location:login.php');
 				}

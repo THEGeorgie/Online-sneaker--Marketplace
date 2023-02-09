@@ -19,12 +19,9 @@
 		<div class="wave"></div>
 		<div class="wave"></div>
 		<div class="wave"></div>
-		<nav class="navbar fixed-top navbar-expand-lg navbar-dark p-md-3">
-			<div class="container-fluid">
-				<a href="index.php" class="navbar-brand fs-4">【Ｓｎｅａｋｅｒ Ｈａｖｅｎ】</a>
-			</div>
-		</nav>
-
+		<?php 
+			require("header.php");
+		?>
 		<section class="p-5 pM">
 			<div class="container shadow">
 				<div class="row text-white">
