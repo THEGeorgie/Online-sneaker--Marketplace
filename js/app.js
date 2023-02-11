@@ -1,32 +1,124 @@
-// Cache out buttons container, and all of the panels
-const buttons = document.querySelector('.buttons');
-const panels = document.querySelectorAll('.panel');
+let modelsNike = [
+  "Air max 90",
+  "Air Max 95",
+  "Air Max 200",
+  "Air Max Plus",
+  "Air force",
+  "Vapor max",
+];
+let modelsYeezy = [
+  "Yeezy BOOST 350",
+  "Yeezy BOOST 700",
+  "Yeezy BOOST 700 v3",
+  "Yeezy FOAM Runner",
+  "Yeezy 750 BOOST",
+  "Yeezy 450",
+  "Yeezy Boot Rock",
+];
+let modelsJordan = [
+  "Jordan 4",
+  "Jordan 1",
+  "Jordan 3",
+  "Jordan 11",
+];
+let sortedModelsNike = modelsNike.sort();
+let sortedModelsYeezy = modelsYeezy.sort();
+let sortedModelsJordan = modelsJordan.sort();
 
-// Add an event listener to the buttons container
-buttons.addEventListener('click', handleClick);
 
-// When a child element of `buttons` is clicked
-function handleClick(e) {
- 
-  // Check to see if its a button
-  if (e.target.matches('button')) {
+let input = document.getElementById("model");
 
-    // For every element in the `panels` node list use `classList`
-    // to remove the show class
-    panels.forEach(panel => panel.classList.remove('show'));
+function sortAlgoYeezy() {
+  input.addEventListener("keyup", (e) => {
+    removeElement();
+    for (let i of sortedModelsYeezy) {
+      if (i.toLowerCase().startsWith(input.value.toLowerCase()) && input.value != "") {
+        let listItem = document.createElement("li");
 
-    // "Destructure" the `id` from the button's data set
-    const { id } = e.target.dataset;
+        listItem.classList.add("list-group-item");
+        listItem.style.cursor = "pointer";
+        listItem.setAttribute("onclick", "displayModels('" + i + "')");
 
-    // Create a selector that will match the corresponding
-    // panel with that id. We're using a template string to
-    // help form the selector. Basically it says find me an element
-    // with a "panel" class which also has an id that matches the id of
-    // the button's data attribute which we just retrieved.
-    const selector = `.panel[id="${id}"]`;
-
-    // Select the `div` and, using classList, again add the
-    // show class
-    document.querySelector(selector).classList.add('show');
-  }
+        let word = "<p>" + i.substr(0, input.value.lenght) + "</p>";
+        // word += i.substr(input.value.lenght);
+        listItem.innerHTML = word;
+        document.querySelector(".list-group").appendChild(listItem);
+      }
+    }
+  });
 }
+
+function sortAlgoNike() {
+  input.addEventListener("keyup", (e) => {
+    removeElement();
+    for (let i of sortedModelsNike) {
+      if (i.toLowerCase().startsWith(input.value.toLowerCase()) && input.value != "") {
+        let listItem = document.createElement("li");
+
+        listItem.classList.add("list-group-item");
+        listItem.style.cursor = "pointer";
+        listItem.setAttribute("onclick", "displayModels('" + i + "')");
+
+        let word = "<p>" + i.substr(0, input.value.lenght) + "</p>";
+        // word += i.substr(input.value.lenght);
+        listItem.innerHTML = word;
+        document.querySelector(".list-group").appendChild(listItem);
+      }
+    }
+  });
+}
+
+function sortAlgoJordan() {
+  input.addEventListener("keyup", (e) => {
+    removeElement();
+    for (let i of sortedModelsJordan) {
+      if (i.toLowerCase().startsWith(input.value.toLowerCase()) && input.value != "") {
+        let listItem = document.createElement("li");
+
+        listItem.classList.add("list-group-item");
+        listItem.style.cursor = "pointer";
+        listItem.setAttribute("onclick", "displayModels('" + i + "')");
+
+        let word = "<p>" + i.substr(0, input.value.lenght) + "</p>";
+        // word += i.substr(input.value.lenght);
+        listItem.innerHTML = word;
+        document.querySelector(".list-group").appendChild(listItem);
+      }
+    }
+  });
+}
+
+function displayModels(value) {
+  input.value = value;
+}
+
+function removeElement() {
+  let items = document.querySelectorAll(".list-group-item");
+
+  items.forEach((item) => {
+    item.remove();
+  });
+}
+
+$('#ControlTXT').change(function (e) {
+  var selected = $(e.currentTarget).val();
+  $('#NikeTXT').hide();
+  $('#JordanTXT').hide();
+  $('#YeezyTXT').hide();
+  switch (selected) {
+    case "Nike":
+      sortAlgoNike();
+      $('#NikeTXT').show();
+      break;
+    case "Jordan":
+      sortAlgoYeezy();
+      $('#JordanTXT').show();
+      break;
+    case "Yeezy":
+      sortAlgoJordan();
+      $('#YeezyTXT').show();
+      break;
+    default:
+      break;
+  }
+})

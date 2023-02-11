@@ -6,7 +6,7 @@
         <a href="index.php" class="navbar-brand fs-4">【Ｓｎｅａｋｅｒ Ｈａｖｅｎ】</a>
         <button type="button" class="navbar-toggler" data-bs-target="#navbarNav" data-bs-toggle="collapse"
             aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle Navbar">
-            <span class="navbar-toggler-icon"></span>
+            <span class="navbar-toggler-icon bi bi-caret-down"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
             <div class="mx-auto"></div>
@@ -30,7 +30,7 @@
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                             <?php if (isset($_SESSION['seller']) == true) { ?>
-                                <li><a class="dropdown-item " href="#">Create post</a></li>
+                                <li><a class="dropdown-item " href="create_post.php">Create post</a></li>
                             <?php }?>
                             <li><a class="dropdown-item" href="profile.php">Profile</a></li>
                         </ul>
