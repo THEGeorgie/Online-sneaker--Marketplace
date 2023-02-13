@@ -17,6 +17,9 @@
                     <?php
                         if(isset($_GET['logoutLINK'])){
                             unset($_SESSION['loggedin']);
+                            unset($_SESSION['seller']);
+                            unset($_SESSION['name']);
+                            unset($_SESSION['id']);
                             header("refresh: 0");
                         }
                     ?>

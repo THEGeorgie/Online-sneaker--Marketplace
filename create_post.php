@@ -1,6 +1,3 @@
-<?php 
-        session_start();
-?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -88,6 +85,7 @@
 						<div class="col-sm-4 col-lg-4"></div>
 						<div class="col-sm-4 col-lg-4">
 							<div class="input-group mt-3">
+								<span class="input-group-text">Price</span>
 								<span class="input-group-text">euros</span>
 								<input type="text" class="form-control" name="price" aria-label="Amount (to the nearest dollar)">
 								<span class="input-group-text">.00</span>
@@ -97,6 +95,22 @@
 							<label for="">Releas Date</label>
 							<input type="date" name="dateR" required="required">
 						</div>
+						<?php
+    					//Unsetting the 'success' session after displaying the message. 
+    					unset($_SESSION['success']);
+    					
+    					?>
+						<?php
+									//checking if the session 'error' is set. Erro session is the message if the 'Username' and 'Password' is not valid.
+									if(ISSET($_SESSION['error'])){
+							?>
+							<!-- Display Login Error message -->
+							<div class="alert alert-danger"><?php echo $_SESSION['error']?></div>
+							<?php
+									//Unsetting the 'error' session after displaying the message. 
+									unset($_SESSION['error']);
+									}
+							?>
 						<div class="col-sm-12 col-lg-12 text-center">
 							<!-- <button class="btn btn-outline-light btn-block my-3" name="submit" value="upload">【Ｓｕｂｍｉｔ】</button> -->
 							<input type="submit" name="uplaodPost" value="【Ｓｕｂｍｉｔ】" class="btn btn-outline-light btn-block my-3">

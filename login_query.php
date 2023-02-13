@@ -42,12 +42,7 @@
 					$name = $_POST['username'];
 					$_SESSION['name']= $name;
 					$_SESSION['loggedin'] = true;
-					$_SESSION['seller'] = 2;
-					$statemnt1 = $pdo->query("SELECT * FROM `Stranke` WHERE `uporabnisko_ime` = '$username' AND `password` = '$password'");
-					$information1 = $statemnt1->fetchAll(PDO::FETCH_ASSOC);
-					foreach($information1 as $raw => $info1) {
-						$_SESSION['id'] = $info1['prod_id'];
-					}
+					$_SESSION['seller'] = false;
     				header('location:home.php');
 				}else {
 					$_SESSION['loggedin'] = false;
