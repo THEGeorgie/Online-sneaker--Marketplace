@@ -34,7 +34,6 @@
         //     header('location:create_post.php');
         // }
 
-        $Image = file_get_contents( $_FILES['image']['tmp_name'] );
         $querry = "INSERT INTO 'Snkr' (img) VALUES (:img)";           
         $stmt = $conn->prepare($query);
         $stmt->bindParam(':img', $Image);
