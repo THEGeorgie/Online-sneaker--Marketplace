@@ -42,7 +42,7 @@
 						<div class="col-sm-4 col-lg-4"></div>
 						<div class="col-sm-8 col-lg-8">
 							<label for="formFileMultiple" class="form-label">Select image</label>
-							<input class="form-control" type="file" name="myImage" accept="image/png, image/jpeg"
+							<input class="form-control" type="file" name="image" accept="image/png, image/jpeg"
 								required="required" />
 						</div>
 						<div class="col-sm-4 col-lg-4 " id="modelTXT">
@@ -97,7 +97,7 @@
 							<input type="date" required="required">
 						</div>
 						<div class="col-sm-12 col-lg-12 text-center">
-							<button class="btn btn-outline-light btn-block my-3" name="submit">【Ｓｕｂｍｉｔ】</button>
+							<button class="btn btn-outline-light btn-block my-3" name="submit" value="Upload">【Ｓｕｂｍｉｔ】</button>
 						</div>
 					</div>
 				</form>
