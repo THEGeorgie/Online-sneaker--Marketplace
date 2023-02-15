@@ -1,65 +1,66 @@
 <?php
-    session_start();
+session_start();
 
-    require_once 'connection.php';
-    
-    if(isset($_POST['uplaodPost'])) {
-        // $file = $_FILES['Image'];
+require_once 'connection.php';
 
-        // $fileName = $_FILES['Iamge']['name'];
-        // $fileTmpName = $_FILES['Iamge']['tmp_name'];
-        // $fileSize = $_FILES['Iamge']['size'];
-        // $fileError = $_FILES['Iamge']['error'];
-        // $fileType = $_FILES['Iamge']['type'];
+if (isset($_POST['uplaodPost'])) {
 
-        // $fileExt = explode('.', $fileName);
-        // $fileActualExt = strtolower(end($fileExt));
+    $brand = $_POST['brand'];
+    $model = $_POST['model'];
+    $colorCode = $_POST['colorCode'];
+    $size = $_POST['size'];
+    $price = $_POST['price'];
+    $dateR = $_POST['dateR'];
+    $Sid = $_SESSION['id'];
+    $dateC = date("Y-m-d H:i:s");
 
-        // $allowed + array('jpg', 'jpeg', 'png');
 
-        // if(in_array($fileActualExt, $allowed)){
-        //     if($fileError === 0){
-        //         if($fileSize < 25000) {
-                    
-        //         }else {
-        //             $_SESSION['error'] = 'Image too big!';
-        //             header('location:create_post.php');
-        //         }
-        //     } else {
-        //         $_SESSION['error'] = 'Error created while upload!';
-        //         header('location:create_post.php');
-        //     }
-        // }else {
-        //     $_SESSION['error'] = 'file type not Supported!';
-        //     header('location:create_post.php');
-        // }
-        if(isset($_FILES['image'])){
-            $filename = $_FILES['image'] ['name'];
-            $filetmpname = $_FILES['image'] ['tmp_name'];
-            $folder =  'upload/';
+    $fileName = $_FILES['image']['name'];
+    $fileTmpName = $_FILES['image']['tmp_name'];
+    $fileSize = $_FILES['image']['size'];
+    $fileError = $_FILES['image']['error'];
+    $fileType = $_FILES['image']['type'];
 
-            move_uploaded_file($filetmpname, $folder.$filename);
+    $fileExt = explode('.', $fileName);
+    $fileActualExt = strtolower(end($fileExt));
 
-            $querry = "INSERT INTO 'Snkr' (img) VALUES (:img)";           
-            $stmt_post = $conn->prepare($query);
-            $stmt_post->bindParam(':img', $filename);
-            if($stmt_post->execute()) {
-            
-                $_SESSION['success'] = "Successfully created a post";
+    $allowed = array('jpg', 'jpeg', 'png');
 
-                header('location: home.php');
-            }
-            else{
-                $_SESSION['error'] = "Unsuccessfully created a post";
-
+    if (in_array($fileActualExt, $allowed)) {
+        if ($fileError === 0) {
+            if ($fileError < 25000) {
+                $fileNewName = uniqid('', true).".".$fileActualExt;
+                $querry = "INSERT INTO 'Teniske' (znamka, model, barva, velikost, cena, datum_izdaje, prod_id, slika, datum_ustvaritev) VALUES (:znamka, :model, :barva, :velikost, :cena, :datum_izdaje, :prod_id, :slika, :datum_ustvaritev)";
+                $stmt_post = $conn->prepare($querry);
+                $stmt_post->bindParam(':znamka', $brand);
+                $stmt_post->bindParam(':model', $model);
+                $stmt_post->bindParam(':barva', $colorCode);
+                $stmt_post->bindParam(':velikost', $size);
+                $stmt_post->bindParam(':cena', $price);
+                $stmt_post->bindParam(':datum_izdaje', $dateR);
+                $stmt_post->bindParam(':prod_id', $Sid);
+                $stmt_post->bindParam(':slika', $fileNewName);
+                $stmt_post->bindParam(':datum_ustvaritev', $dateC);
+                if ($stmt_post->execute()) {
+                    $_SESSION['success'] = "Successfully created a post";
+                    header('location: home.php');
+                }else{
+                    $_SESSION['error'] = "Something went wrong......";
+                    header('location: create_post.php');
+                }
+            } else {
+                $_SESSION['error'] = "File is to big";
                 header('location: create_post.php');
             }
-        }
-        else{
-            $_SESSION['error'] = "Unsuccessfully created a post";
+        } else {
+            $_SESSION['error'] = "Fatel error has aquored";
             header('location: create_post.php');
         }
-        
+    } else {
+        $_SESSION['error'] = "File type unsuported";
+        header('location: create_post.php');
     }
+
+}
 
 ?>
