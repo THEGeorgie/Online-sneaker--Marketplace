@@ -25,7 +25,7 @@
         ?>
 		<section class="p-5 pM">
 			<div class="container shadow text-light">
-				<form method="POST" action="save_post.php" name="createpost">
+				<form method="POST" action="save_post.php" name="createpost" enctype="multipart/form-data">
 					<div class="row">
 						<div class="col-sm-4 col-lg-4"></div>
 						<div class="col-sm-4 col-lg-4">
@@ -42,8 +42,9 @@
 						<div class="col-sm-4 col-lg-4"></div>
 						<div class="col-sm-8 col-lg-8">
 							<label for="formFileMultiple" class="form-label">Select image</label>
-							<input class="form-control" type="file" name="image" accept="image/png, image/jpeg"
+							<input class="form-control" type="file" name="image" 
 								required="required" />
+								<!-- accept="image/png, image/jpeg" -->
 						</div>
 						<div class="col-sm-4 col-lg-4 " id="modelTXT">
 							<div class="bg-transparent form-floating mt-3">
@@ -97,7 +98,9 @@
 							<input type="date" required="required">
 						</div>
 						<div class="col-sm-12 col-lg-12 text-center">
-							<button class="btn btn-outline-light btn-block my-3" name="submit" value="Upload">【Ｓｕｂｍｉｔ】</button>
+							<!-- <button class="btn btn-outline-light btn-block my-3" name="submit" value="upload">【Ｓｕｂｍｉｔ】</button> -->
+							<input type="submit" name="uplaodPost" value="【Ｓｕｂｍｉｔ】" class="btn btn-outline-light btn-block my-3">
+							<?php print_r($_FILES)?>
 						</div>
 					</div>
 				</form>

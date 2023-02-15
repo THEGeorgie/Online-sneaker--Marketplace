@@ -3,7 +3,7 @@
 
     require_once 'connection.php';
     
-    if(isset($_POST['submit'])) {
+    if(isset($_POST['uplaodPost'])) {
         // $file = $_FILES['Image'];
 
         // $fileName = $_FILES['Iamge']['name'];
@@ -33,16 +33,33 @@
         //     $_SESSION['error'] = 'file type not Supported!';
         //     header('location:create_post.php');
         // }
+        if(isset($_FILES['image'])){
+            $filename = $_FILES['image'] ['name'];
+            $filetmpname = $_FILES['image'] ['tmp_name'];
+            $folder =  'upload/';
 
-        $querry = "INSERT INTO 'Snkr' (img) VALUES (:img)";           
-        $stmt = $conn->prepare($query);
-        $stmt->bindParam(':img', $Image);
-        if($stmt->execute()) {
+            move_uploaded_file($filetmpname, $folder.$filename);
+
+            $querry = "INSERT INTO 'Snkr' (img) VALUES (:img)";           
+            $stmt_post = $conn->prepare($query);
+            $stmt_post->bindParam(':img', $filename);
+            if($stmt_post->execute()) {
             
-            $_SESSION['success'] = "Successfully created a post";
+                $_SESSION['success'] = "Successfully created a post";
 
-            header('location: home.php');
+                header('location: home.php');
+            }
+            else{
+                $_SESSION['error'] = "Unsuccessfully created a post";
+
+                header('location: create_post.php');
+            }
         }
+        else{
+            $_SESSION['error'] = "Unsuccessfully created a post";
+            header('location: create_post.php');
+        }
+        
     }
 
 ?>
