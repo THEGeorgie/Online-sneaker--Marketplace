@@ -32,7 +32,7 @@
                             <?php echo($_SESSION['name']);?>
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <?php if ($_SESSION['seller'] == 1) { ?>
+                            <?php if ($_SESSION['seller'] == 2) { ?>
                                 <li><a class="dropdown-item " href="create_post.php">Create post</a></li>
                             <?php }?>
                             <li><a class="dropdown-item" href="profile.php">Profile</a></li>
