@@ -25,7 +25,17 @@
         ?>
 		<section class="p-5 pM">
 			<div class="container shadow">
-
+				<?php echo($_SESSION['id']);?>
+				<?php
+    				if(ISSET($_SESSION['success'])){
+    			?>
+						<div class="alert alert-success">
+							<?php echo $_SESSION['success']; header("refresh: 1");?>
+						</div>
+				<?php
+    					unset($_SESSION['success']);
+    				}
+    			?>
 			</div>
 		</section>
 	</div>

@@ -6,6 +6,7 @@
 
     	if(ISSET($_POST['login'])){
     		// Setting variables
+			$pdo = new PDO('sqlite:db/sneaker_haven.sqlite3');
     		$username = $_POST['username'];
     		$password = $_POST['password'];
     		// Select Query for counting the row that has the same value of the given username and password. This query is for checking if the access is valid or not.
@@ -20,7 +21,12 @@
 				$name = $_POST['username'];
 				$_SESSION['name']= $name;
 				$_SESSION['loggedin'] = true;
-				$_SESSION['seller'] = true;
+				$_SESSION['seller'] = 1;
+				$statemnt = $pdo->query("SELECT * FROM `Prodajalec` WHERE `uporabnisko_ime` = '$username' AND `password` = '$password'");
+				$information = $statemnt->fetchAll(PDO::FETCH_ASSOC);
+				foreach($information as $raw => $info){
+					$_SESSION['id'] = $info['prod_id'];
+				}
     			header('location:home.php');
     		}else{
 
@@ -36,7 +42,12 @@
 					$name = $_POST['username'];
 					$_SESSION['name']= $name;
 					$_SESSION['loggedin'] = true;
-					$_SESSION['seller'] = false;
+					$_SESSION['seller'] = 2;
+					$statemnt1 = $pdo->query("SELECT * FROM `Stranke` WHERE `uporabnisko_ime` = '$username' AND `password` = '$password'");
+					$information1 = $statemnt1->fetchAll(PDO::FETCH_ASSOC);
+					foreach($information1 as $raw => $info1) {
+						$_SESSION['id'] = $info1['prod_id'];
+					}
     				header('location:home.php');
 				}else {
 					$_SESSION['loggedin'] = false;
