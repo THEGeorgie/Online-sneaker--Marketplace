@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -23,13 +22,13 @@
         ?>
 		<section class="p-5 pM">
 			<div class="container shadow text-light">
-				<form method="POST" action="save_post.php" name="creatPost">
+				<form method="POST" action="save_post.php" name="createpost" enctype="multipart/form-data">
 					<div class="row">
 						<div class="col-sm-4 col-lg-4"></div>
 						<div class="col-sm-4 col-lg-4">
 							<div class="form-floating ">
-								<select class="form-select mt-3" aria-label="Default select example" id="ControlTXT"
-									required="required" name="brand">
+								<select class="form-select mt-3" aria-label="Default select example" name="brand" id="ControlTXT"
+									required="required">
 									<option value="Nike">【Ｎｉｋｅ】</option>
 									<option value="Jordan">【Ｊｏｒｄａｎ】</option>
 									<option value="Yeezy">【Ｙｅｅｚｙ】</option>
@@ -40,28 +39,29 @@
 						<div class="col-sm-4 col-lg-4"></div>
 						<div class="col-sm-8 col-lg-8">
 							<label for="formFileMultiple" class="form-label">Select image</label>
-							<input class="form-control" type="file" name="Image" accept="image/png, image/jpeg"
-								required="required"/>
+							<input class="form-control"  type="file" name="image" 
+								required="required" />
+								<!--accept="image/png, image/jpeg"-->
 						</div>
 						<div class="col-sm-4 col-lg-4 " id="modelTXT">
 							<div class="bg-transparent form-floating mt-3">
-								<input type="text" class="form-control" id="model" placeholder="name@example.com"
-									required="required" name="model">
+								<input type="text" name="model" class="form-control" id="model" placeholder="name@example.com"
+									required="required">
 								<label for="floatingInput" class="text-dark">Model</label>
 								<ul class="list-group"></ul>
 							</div>
 						</div>
 						<div class="col-sm-6 col-lg-6">
 							<div class="bg-transparent form-floating mt-3">
-								<input type="text" class="form-control" id="colorCode" placeholder="color code"
-									required="required" name="colorCode">
+								<input type="text" name ="colorCode"class="form-control" id="colorCode" placeholder="color code"
+									required="required">
 								<label for="floatingInput" class="text-dark">Color Code</label>
 							</div>
 						</div>
 						<div class="col-sm-6 col-lg-6">
 							<div class="form-floating">
-								<select class="form-select mt-3" aria-label="Default select example"
-									required="required" name="size">
+								<select class="form-select mt-3" name="size" aria-label="Default select example"
+									required="required">
 									<option selected value="4">4</option>
 									<option value="4.5">4.5</option>
 									<option value="5">5</option>
@@ -85,42 +85,18 @@
 						<div class="col-sm-4 col-lg-4"></div>
 						<div class="col-sm-4 col-lg-4">
 							<div class="input-group mt-3">
-								<span class="input-group-text">Price</span>
 								<span class="input-group-text">euros</span>
-								<input type="text" class="form-control" aria-label="Amount (to the nearest euro)" name="price">
+								<input type="text" class="form-control" name="price" aria-label="Amount (to the nearest dollar)">
 								<span class="input-group-text">.00</span>
 							</div>
 						</div>
 						<div class="col-sm-4 col-lg-4 mt-3">
 							<label for="">Releas Date</label>
-							<input type="date" required="required" name="date">
+							<input type="date" name="dateR" required="required">
 						</div>
-						<?php
-    					//checking if the session 'success' is set.
-    					if(ISSET($_SESSION['success'])){
-    					?>
-						<!-- Display regostration success message -->
-						<div class="alert alert-success">
-							<?php echo $_SESSION['success']; header('location: create_post.php');?>
-						</div>
-						<?php
-    					//Unsetting the 'success' session after displaying the message. 
-    					unset($_SESSION['success']);
-    					}
-    					?>
-						<?php
-									//checking if the session 'error' is set. Erro session is the message if the 'Username' and 'Password' is not valid.
-									if(ISSET($_SESSION['error'])){
-							?>
-							<!-- Display Login Error message -->
-							<div class="alert alert-danger"><?php echo $_SESSION['error']?></div>
-							<?php
-									//Unsetting the 'error' session after displaying the message. 
-									unset($_SESSION['error']);
-									}
-							?>
 						<div class="col-sm-12 col-lg-12 text-center">
-							<button class="btn btn-outline-light btn-block my-3" type="submit" name="submit">【Ｓｕｂｍｉｔ】</button>
+							
+							<input type="submit" name="uplaodPost" value="【Ｓｕｂｍｉｔ】" class="btn btn-outline-light btn-block my-3">
 						</div>
 					</div>
 				</form>

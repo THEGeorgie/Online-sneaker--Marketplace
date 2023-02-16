@@ -1,9 +1,20 @@
 <?php
     session_start();
 ?>
-<nav class="navbar fixed-top navbar-expand-lg navbar-dark p-md-3">
-    <div class="container">
-        <a href="index.php" class="navbar-brand fs-4">【Ｓｎｅａｋｅｒ Ｈａｖｅｎ】</a>
+<nav class="navbar  navbar-expand-lg navbar-dark p-md-3">
+    <div class="container-fluid">
+        <?php
+                    if (isset($_SESSION['loggedin']) == true) {
+        ?>
+            <a href="home.php" class="navbar-brand fs-4">【Ｓｎｅａｋｅｒ Ｈａｖｅｎ】</a>
+        <?php 
+                    }
+                    else{
+        ?>
+                        <a href="index.php" class="navbar-brand fs-4">【Ｓｎｅａｋｅｒ Ｈａｖｅｎ】</a>
+        <?php
+                    }
+        ?>
         <button type="button" class="navbar-toggler" data-bs-target="#navbarNav" data-bs-toggle="collapse"
             aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle Navbar">
             <span class="navbar-toggler-icon bi bi-caret-down"></span>
@@ -26,7 +37,7 @@
                     <li class="nav-item">
                         <a href="index.php?logoutLINK=true" class="nav-link text-white">【Ｌｏｇｏｕｔ】</a>
                     </li>
-                    <li class="nav-item dropdown">
+                    <li class="nav-item dropdown me-5">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
                             data-bs-toggle="dropdown" aria-expanded="false">
                             <?php echo($_SESSION['name']);?>
