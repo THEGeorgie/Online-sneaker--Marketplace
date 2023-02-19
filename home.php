@@ -65,6 +65,32 @@
 				</div>
 			</div>
 		</section>
+		<section class="section-products">
+		<div class="container">
+				<div class="row">
+						<!-- Single Product -->
+						<div class="col-md-6 col-lg-4 col-xl-3">
+								<div id="product-1" class="single-product">
+										<div class="part-1">
+												<ul>
+														<li><a href="#"><img src="img/bag-plus.svg" class="grow"></a></li>
+														<li><a href="#"><img src="img/bookmark-heart-fill.svg" alt=""></a></li>
+														<li><a href="#"><i class="fas fa-plus"></i></a></li>
+														<li><a href="#"><i class="fas fa-expand"></i></a></li>
+												</ul>
+										</div>
+										<div class="part-2">
+												<h3 class="product-title">Here Product Title</h3>
+												
+												<h4 class="product-price">$79.99</h4>
+										</div>
+								</div>
+						</div>
+						
+				</div>
+		</div>
+		
+</section>
 	</div>
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
 		integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous">

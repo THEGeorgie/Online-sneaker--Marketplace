@@ -4,7 +4,7 @@
 <nav class="navbar  navbar-expand-lg navbar-dark p-md-3">
     <div class="container-fluid">
         <?php
-                    if (isset($_SESSION['loggedin']) == true) {
+                    if ($_SESSION['loggedin'] == true) {
         ?>
             <a href="home.php" class="navbar-brand fs-4">【Ｓｎｅａｋｅｒ Ｈａｖｅｎ】</a>
         <?php 
@@ -23,7 +23,7 @@
             <div class="mx-auto"></div>
             <ul class="navbar-nav">
                 <?php
-                    if (isset($_SESSION['loggedin']) == true) {
+                    if ($_SESSION['loggedin'] == true) {
                 ?>
                     <?php
                         if(isset($_GET['logoutLINK'])){
