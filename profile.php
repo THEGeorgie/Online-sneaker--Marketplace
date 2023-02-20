@@ -1,8 +1,3 @@
-<?php
-	
-?>
-
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -38,13 +33,23 @@
 		<section class="p-5 pM">
 			<div class="container shadow text-light">
 				<h3>My listings</h3>
-				<form method="POST" action="postDletion.php">
+				<form method="POST" action="postDeletion.php">
 					<ul>
 						<?php foreach($postMySnkr as $rows => $postMySnkr) { ?>
-						<li><?php echo($postMySnkr['model']);?>  <button class="btn btn-outline-light btn-block my-3" name="deletePost" value="<?php echo($postMySnkr['tensike_id'])?>">Delete</button> <?php echo($postMySnkr['tensike_id']);?></li>
+						<li><?php echo($postMySnkr['model']);?>  <button class="btn btn-outline-light btn-block my-3" name="delet" value="<?php echo($postMySnkr['tensike_id'])?>">Delete</button> <?php echo($postMySnkr['tensike_id']);?></li>
 						<?php } ?>
 					</ul>
 				</form>
+				<?php
+    				if(ISSET($_SESSION['success'])){
+    			?>
+				<div class="alert alert-success">
+					<?php echo $_SESSION['success']; header("refresh: 2");?>
+				</div>
+				<?php
+    					unset($_SESSION['success']);
+    				}
+    			?>
 			</div>
 		</section>
 	</div>
