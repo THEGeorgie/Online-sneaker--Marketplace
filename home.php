@@ -16,6 +16,7 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" type="text/css" href="css/style.php">
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
 		integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
 	<title>【ＳｎｅａｋｅｒＨａｖｅｎ】</title>
@@ -42,7 +43,7 @@
     					unset($_SESSION['success']);
     				}
     			?>
-
+				                        
 				<div class="row row-cols-1 row-cols-md-3 g-4">
 					<div class="col">
 						<?php foreach($postSnkr as $rows => $postSnkr) { ?>
@@ -73,10 +74,9 @@
 								<div id="product-1" class="single-product">
 										<div class="part-1">
 												<ul>
+														<p style="margin-bottom: 0px;">Size</p>
 														<li><a href="#"><img src="img/bag-plus.svg" class="grow"></a></li>
 														<li><a href="#"><img src="img/bookmark-heart-fill.svg" alt=""></a></li>
-														<li><a href="#"><i class="fas fa-plus"></i></a></li>
-														<li><a href="#"><i class="fas fa-expand"></i></a></li>
 												</ul>
 										</div>
 										<div class="part-2">

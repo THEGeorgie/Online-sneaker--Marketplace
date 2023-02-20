@@ -67,4 +67,13 @@ if (isset($_POST['uplaodPost'])) {
 
 }
 
+if (isset($_POST['deletePost'])) {
+
+    
+
+    $sqlProfileSelect = "SELECT * From 'Teniske' WHERE tensike_id ='{$_SESSION['id']}'";
+
+	$stmt_DeletepostProfilePage = $conn->query($sqlProfile);
+}
+
 ?>

@@ -1,9 +1,13 @@
+<?php
+	
+?>
+
 
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />	
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -19,14 +23,28 @@
 		<div class="wave"></div>
 		<div class="wave"></div>
 		<div class="wave"></div>
-		
+
 		<?php
                 require("header.php");
+
+			require_once('connection.php');
+
+			$sqlProfile = "SELECT * From 'Teniske' WHERE prod_id ='{$_SESSION['id']}'";
+			$stmt_postProfilePage = $conn->query($sqlProfile);
+			$postMySnkr = $stmt_postProfilePage->fetchAll(PDO::FETCH_ASSOC);
+
         ?>
 
 		<section class="p-5 pM">
-			<div class="container shadow">
-				
+			<div class="container shadow text-light">
+				<h3>My listings</h3>
+				<form method="POST" action="postDletion.php">
+					<ul>
+						<?php foreach($postMySnkr as $rows => $postMySnkr) { ?>
+						<li><?php echo($postMySnkr['model']);?>  <button class="btn btn-outline-light btn-block my-3" name="deletePost" value="<?php echo($postMySnkr['tensike_id'])?>">Delete</button> <?php echo($postMySnkr['tensike_id']);?></li>
+						<?php } ?>
+					</ul>
+				</form>
 			</div>
 		</section>
 	</div>
