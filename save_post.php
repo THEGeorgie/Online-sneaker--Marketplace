@@ -34,7 +34,7 @@ if (isset($_POST['uplaodPost'])) {
 
                 move_uploaded_file($fileTmpName, $target);
 
-                $querry = "INSERT INTO 'Teniske' (znamka, model, barva, velikost, cena, datum_izdaje, prod_id, slika, datum_ustvaritev) VALUES (:znamka, :model, :barva, :velikost, :cena, :datum_izdaje, :prod_id, :slika, :datum_ustvaritev)";
+                $querry = "INSERT INTO 'Teniske' (znamka, model, barva, velikost, cena, datum_izdaje, prod_id, slika, datum_ustvaritev, prodano) VALUES (:znamka, :model, :barva, :velikost, :cena, :datum_izdaje, :prod_id, :slika, :datum_ustvaritev, 0)";
                 $stmt_post = $conn->prepare($querry);
                 $stmt_post->bindParam(':znamka', $brand);
                 $stmt_post->bindParam(':model', $model);
@@ -66,14 +66,4 @@ if (isset($_POST['uplaodPost'])) {
     }
 
 }
-
-if (isset($_POST['deletePost'])) {
-
-    
-
-    $sqlProfileSelect = "SELECT * From 'Teniske' WHERE tensike_id ='{$_SESSION['id']}'";
-
-	$stmt_DeletepostProfilePage = $conn->query($sqlProfile);
-}
-
 ?>

@@ -32,24 +32,36 @@
 
 		<section class="p-5 pM">
 			<div class="container shadow text-light">
-				<h3>My listings</h3>
-				<form method="POST" action="postDeletion.php">
-					<ul>
-						<?php foreach($postMySnkr as $rows => $postMySnkr) { ?>
-						<li><?php echo($postMySnkr['model']);?>  <button class="btn btn-outline-light btn-block my-3" name="delet" value="<?php echo($postMySnkr['tensike_id'])?>">Delete</button> <?php echo($postMySnkr['tensike_id']);?></li>
-						<?php } ?>
-					</ul>
-				</form>
-				<?php
+				<div class="row">
+					<div class="col-sm-12 col-lg-6">
+						<?php if(isset($_SESSION['seller']) && $_SESSION['seller'] == 2) {?>
+						<h3>My listings</h3>
+						<form method="POST" action="postDeletion.php">
+							<ul>
+								<?php foreach($postMySnkr as $rows => $postMySnkr) { ?>
+								<li><?php echo($postMySnkr['model']);?> <button
+										class="btn btn-outline-light btn-block my-3" name="delet"
+										value="<?php echo($postMySnkr['tensike_id'])?>">Delete</button>
+									<?php echo($postMySnkr['tensike_id']);?></li>
+								<?php } ?>
+							</ul>
+						</form>
+						<?php
     				if(ISSET($_SESSION['success'])){
-    			?>
-				<div class="alert alert-success">
-					<?php echo $_SESSION['success']; header("refresh: 2");?>
-				</div>
-				<?php
+    					?>
+						<div class="alert alert-success">
+							<?php echo $_SESSION['success']; header("refresh: 2");?>
+						</div>
+						<?php
     					unset($_SESSION['success']);
-    				}
-    			?>
+    					}
+    					?>
+						<?php }?>
+					</div>
+					<div class="col-sm-12 col-lg-12">
+						
+					</div>
+				</div>
 			</div>
 		</section>
 	</div>
