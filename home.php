@@ -57,10 +57,10 @@
 									<li class="list-group-item">Size: <?php echo($postSnkr['velikost']);?></li>
 									<li class="list-group-item">Price: <?php echo($postSnkr['cena']);?></li>
 								</ul>
-								<a href="#" class="btn btn-primary">Go somewhere</a>
+								<a href="checkout.php" class="btn btn-primary" value="">Buy</a>
 							</div>
 						</div>
-						<?php } ?>
+						<?php } ?>	
 					</div>
 				</div>
 			</div>
