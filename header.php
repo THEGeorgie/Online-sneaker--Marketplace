@@ -1,20 +1,22 @@
 <?php
     session_start();
+    
 ?>
 <nav class="navbar  navbar-expand-lg navbar-dark p-md-3">
     <div class="container-fluid">
+
         <?php
-                    if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
-        ?>
-            <a href="home.php" class="navbar-brand fs-4">【Ｓｎｅａｋｅｒ Ｈａｖｅｎ】</a>
+                        if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
+            ?>
+        <a href="/?page=home" class="navbar-brand fs-4">【Ｓｎｅａｋｅｒ Ｈａｖｅｎ】</a>
         <?php 
-                    }
-                    else{
-        ?>
-                        <a href="index.php" class="navbar-brand fs-4">【Ｓｎｅａｋｅｒ Ｈａｖｅｎ】</a>
+                        }
+                        else{
+            ?>
+        <a href="/" class="navbar-brand fs-4">【Ｓｎｅａｋｅｒ Ｈａｖｅｎ】</a>
         <?php
-                    }
-        ?>
+                        }
+            ?>
         <button type="button" class="navbar-toggler" data-bs-target="#navbarNav" data-bs-toggle="collapse"
             aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle Navbar">
             <span class="navbar-toggler-icon bi bi-caret-down"></span>
@@ -23,45 +25,46 @@
             <div class="mx-auto"></div>
             <ul class="navbar-nav">
                 <?php
-                    if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
-                ?>
-                    <?php
-                        if(isset($_GET['logoutLINK'])){
-                            unset($_SESSION['loggedin']);
-                            unset($_SESSION['seller']);
-                            unset($_SESSION['name']);
-                            unset($_SESSION['id']);
-                            header("refresh: 0");
-                        }
+                        if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
                     ?>
-                    <li class="nav-item">
-                        <a href="index.php?logoutLINK=true" class="nav-link text-white">【Ｌｏｇｏｕｔ】</a>
-                    </li>
-                    <li class="nav-item dropdown me-5">
+                <?php
+                            if(isset($_GET['logoutLINK'])){
+                                unset($_SESSION['loggedin']);
+                                unset($_SESSION['seller']);
+                                unset($_SESSION['name']);
+                                unset($_SESSION['id']);
+                                header("refresh: 0");
+                            }
+                        ?>
+                <li class="nav-item">
+                    <a href="/?logoutLINK=true" class="nav-link text-white">【Ｌｏｇｏｕｔ】</a>
+                </li>
+                <li class="nav-item dropdown me-5">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
                             data-bs-toggle="dropdown" aria-expanded="false">
                             <?php echo($_SESSION['name']);?>
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                             <?php if ($_SESSION['seller'] == 2) { ?>
-                                <li><a class="dropdown-item " href="create_post.php">Create post</a></li>
+                                <li><a class="dropdown-item " href="/?page=create_post">Create post</a></li>
                             <?php }?>
-                            <li><a class="dropdown-item" href="profile.php">Profile</a></li>
+                            <li><a class="dropdown-item" href="/?page=profile">Profile</a></li>
                         </ul>
                     </li>
+
                 <?php 
-                    }
-                    else{
-                ?>
+                        }
+                        else{
+                    ?>
                 <li class="nav-item">
-                    <a href="login.php" class="nav-link text-white">【Ｌｏｇｉｎ】</a>
+                    <a href="/?page=login" class="nav-link text-white">【Ｌｏｇｉｎ】</a>
                 </li>
                 <li class="nav-item">
-                    <a href="register.php" class="nav-link text-white">【Ｊｏｉｎ】</a>
+                    <a href="/?page=reg" class="nav-link text-white">【Ｊｏｉｎ】</a>
                 </li>
                 <?php
-                    }
-                ?>
+                        }
+                    ?>
             </ul>
         </div>
     </div>

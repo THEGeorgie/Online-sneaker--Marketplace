@@ -7,7 +7,7 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<script src="js/app.js"></script>
-	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="assets/css/style.css">
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
 		integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
 	<title>【ＳｎｅａｋｅｒＨａｖｅｎ】</title>
@@ -58,7 +58,16 @@
     					?>
 						<?php }?>
 					</div>
-					<div class="col-sm-12 col-lg-12">
+					<div class="col-sm-12 col-lg-6">
+						<h3>Address</h3>
+						<a class="btn btn-outline-light" href="/?ad=address"> Add adress</a>
+						<?php
+							if (isset($_GET['ad'])) {
+								if ($_GET['ad'] == 'address') {
+									include_once('address.php');
+								}
+							}
+						?>
 						
 					</div>
 				</div>

@@ -46,10 +46,10 @@
     			//setting a 'success' session to save our insertion success message.
     			$_SESSION['success'] = "Successfully created an account";
     			//redirecting to the index.php 
-    			header('location: login.php');
+    			header('location:../pages/login.php');
     		}
 			else{
-				header('location: index.php');
+				header('location:../../index.php');
 			}
     	}
 ?>
