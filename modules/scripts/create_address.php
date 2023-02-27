@@ -14,7 +14,7 @@
         $Aid = $_SESSION['id'];
 
         if ($_SESSION['seller'] == 2) {
-            $querryP = "INSERT INTO 'naslov_za_posiljanje_prodajalec' (adres1, adres2, postna_stevilka, telefonska_stevilka prod_id, Ime, Primek, drzava, mesto) VALUES (:address1, :address2, :postnaStevilka, :mobilanStevilka, :Aid, :ime, :primek, :drzava, :mesto)";
+            $querryP = "INSERT INTO 'naslov_za_posiljanje_prodajalec' (adres1, adres2, postna_stevilka, telefonska_stevilka, prod_id, Ime, Primek, drzava, mesto) VALUES (:address1, :address2, :postnaStevilka, :mobilanStevilka, :Aid, :ime, :primek, :drzava, :mesto)";
             $stmt_adresP = $conn->prepare($querryP);
             $stmt_adresP->bindParam(':address1', $address1);
             $stmt_adresP->bindParam(':address2', $address2);
@@ -27,10 +27,12 @@
             $stmt_adresP->bindParam(':mesto', $mesto);
             if ($stmt_adresP->execute()) {
                 $_SESSION['success'] = "Adress saved successfully";
-                header('location:profile.php');
+                header('location:../../index.php');
+                $_GET['page'] = "profile";
             }else{
                 $_SESSION['error'] = "Something went wrong......";
-                header('location:profile.php');
+                header('location:../../index.php');
+                $_GET['page'] = "profile";
             }
         }else {
             $querryS = "INSERT INTO 'Naslov_za_posiljanje_stranka' (adres1, adres2, postna_stevilka, telefonska_stevilka strank_id, Ime, Primek, drzava, mesto) 
