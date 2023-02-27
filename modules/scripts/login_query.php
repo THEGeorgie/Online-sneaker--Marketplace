@@ -27,7 +27,7 @@
 				foreach($user as $roww => $user){
 					$_SESSION['id'] = $user['prod_id'];
 				}
-    			header('location:../../index.php');
+    			header('location:../../?page=home/index.php');
     		}else{
 
 				$query1 = "SELECT COUNT(*) as count FROM `Stranke` WHERE `uporabnisko_ime` = :uporabnisko_ime AND `password` = :password";
@@ -49,7 +49,7 @@
 					foreach($user as $roww => $user){
 						$_SESSION['id'] = $user['strank_id'];
 					}
-    				header('location:../../index.php');
+    				header('location:../../?page=home/index.php');
 				}else {
 					$_SESSION['loggedin'] = false;
 					$_SESSION['error'] = "Invalid username or password";

@@ -20,18 +20,18 @@
         require_once("modules/pages/header.php");
         ?>
         <br>
-        <div class="container my-5">
+        <div class="container-fluid my-5">
             <?php
             if (isset($_GET['page'])) {
                 switch ($_GET['page']) {
                     case "login":
-                        require_once("modules/pages/login.php");
+                        include_once("modules/pages/login.php");
                         break;
                     case "reg":
-                        require_once("modules/pages/register.php");
+                        include_once("modules/pages/register.php");
                         break;
                     case "home":
-                        require_once("modules/pages/home.php");
+                        include_once("modules/pages/home.php");
                         break;
                     default:
                         # code...
@@ -43,17 +43,20 @@
                         include_once('modules/pages/create_post.php');
                     }elseif ( $_GET['page'] == 'profile') {
                         include_once('modules/pages/profile.php');
+                    }elseif ($_GET['page'] == 'checkout') {
+                        include_once("modules/pages/checkout.php");
                     }else {
                         if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
                             include_once("modules/pages/home.php");
             
                         } elseif (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == false) {
-                            include("modules/pages/login.php");
+                            include_once("modules/pages/login.php");
                         }
                     }
             }
             ?>
         </div>
+    </div>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
 </body>
 

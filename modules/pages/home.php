@@ -32,7 +32,7 @@
 							<li class="list-group-item">Size: <?php echo($postSnkr['velikost']);?></li>
 							<li class="list-group-item">Price: <?php echo($postSnkr['cena']);?></li>
 						</ul>
-						<a href="checkout.php" class="btn btn-primary" value="">Buy</a>
+						<a href="/?page=checkout&id=<?php echo($postSnkr['tensike_id'])?>" class="btn btn-primary">Buy</a>
 					</div>
 				</div>
 				<?php } ?>
