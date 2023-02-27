@@ -17,7 +17,7 @@
         <div class="wave"></div>
         <div class="wave"></div>
         <?php
-        require_once("header.php");
+        require_once("modules/pages/header.php");
         ?>
         <br>
         <div class="container my-5">
@@ -25,30 +25,32 @@
             if (isset($_GET['page'])) {
                 switch ($_GET['page']) {
                     case "login":
-                        require_once("login.php");
+                        require_once("modules/pages/login.php");
                         break;
                     case "reg":
-                        require_once("register.php");
-                        break;
-                    case "create_post":
-                        header("location:create_post.php");
-                        break;
-                    case "profile":
-                        header("location:profile.php");
+                        require_once("modules/pages/register.php");
                         break;
                     case "home":
-                        require_once("home.php");
+                        require_once("modules/pages/home.php");
                         break;
                     default:
                         # code...
                         break;
-                }
-            }
-            if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
-                include_once("home.php");
+             
+                    }
 
-            } elseif (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == false) {
-                include("login.php");
+                    if ($_GET['page'] == 'create_post') {
+                        include_once('modules/pages/create_post.php');
+                    }elseif ( $_GET['page'] == 'profile') {
+                        include_once('modules/pages/profile.php');
+                    }else {
+                        if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
+                            include_once("modules/pages/home.php");
+            
+                        } elseif (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == false) {
+                            include("modules/pages/login.php");
+                        }
+                    }
             }
             ?>
         </div>

@@ -4,7 +4,7 @@
 		<div class="row justify-content-center">
 			<div class="col-md-6">
 				<a href="login.php">Already a member? Log in here...</a>
-				<form method="POST" action="save_member.php" class="text-white">
+				<form method="POST" action="modules/scripts/save_member.php" class="text-white">
 					<div class="form-group">
 						<label>Username</label>
 						<input type="text" name="username" class="form-control" required="required" />

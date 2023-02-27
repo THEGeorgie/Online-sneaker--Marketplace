@@ -6,7 +6,7 @@
 					ｒｅｐｅｌｌｅｎｄｕｓ　ｎｉｈｉｌ　ｓｉｎｔ　ｑｕｉ　ｌｉｂｅｒｏ　ｕｔ　ｆａｃｉｌｉｓ？　Ｃｏｍｍｏｄｉ　ｄｕｃｉｍｕｓ　ｎａｔｕｓ　ｏｆｆｉｃｉｉｓ．】</p>
 			</div>
 			<div class="col-lg-6 col-sm-12">
-				<form method="POST" action="login_query.php">
+				<form method="POST" action="modules/scripts/login_query.php">
 					<div class="form-group">
 						<label>【Ｕｓｅｒｎａｍｅ】</label>
 						<input type="text" name="username" class="form-control" required="required" />

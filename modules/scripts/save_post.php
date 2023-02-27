@@ -30,7 +30,7 @@ if (isset($_POST['uplaodPost'])) {
         if ($fileError === 0) {
             if ($fileError < 25000) {
                 $fileNewName = uniqid('', true).".".$fileActualExt;
-                $target = 'uploads/'.$fileNewName;
+                $target = 'modules/uploads/'.$fileNewName;
 
                 move_uploaded_file($fileTmpName, $target);
 

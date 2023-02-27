@@ -18,12 +18,11 @@
     				}
     		?>
 
-			<p><?php echo($_SESSION['model']); ?></p>
 		<div class="row row-cols-1 row-cols-md-3 g-4">
 			<div class="col">
 				<?php foreach($postSnkr as $rows => $postSnkr) { ?>
 				<div class="card">
-					<?php echo("<img src='uploads/".$postSnkr['slika']."'>");?>
+					<?php echo("<img src='modules/uploads/".$postSnkr['slika']."'>");?>
 					<div class="card-body">
 						<h5 class="card-title"><?php echo($postSnkr['model'])?></h5>
 						<h6 class="card-subtitle mb-2 text-muted"><?php echo($postSnkr['barva'])?></h6>
