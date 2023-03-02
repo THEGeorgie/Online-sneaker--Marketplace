@@ -22,7 +22,7 @@
 			<div class="col">
 				<?php foreach($postSnkr as $rows => $postSnkr) { ?>
 				<div class="card">
-					<?php echo("<img src='modules/uploads/".$postSnkr['slika']."'>");?>
+					<?php echo("<img src='assets/img/snkrs/".$postSnkr['slika']."'>");?>
 					<div class="card-body">
 						<h5 class="card-title"><?php echo($postSnkr['model'])?></h5>
 						<h6 class="card-subtitle mb-2 text-muted"><?php echo($postSnkr['barva'])?></h6>
