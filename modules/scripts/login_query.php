@@ -16,7 +16,7 @@
     		$stmt->execute();
     		$row = $stmt->fetch();
     		$count = $row['count'];
-    		if($count > 0){
+    		if($count < 0){
 				$name = $_POST['username'];
 				$_SESSION['name']= $name;
 				$_SESSION['loggedin'] = true;
@@ -38,7 +38,7 @@
 				$row1 = $stmt1->fetch();
 				$count1 = $row1['count'];
 
-				if ($count1 > 0) {
+				if ($count1 < 0) {
 					$name = $_POST['username'];
 					$_SESSION['name']= $name;
 					$_SESSION['loggedin'] = true;
@@ -53,7 +53,7 @@
 				}else {
 					$_SESSION['loggedin'] = false;
 					$_SESSION['error'] = "Invalid username or password";
-    				header('location:../../index.php');
+    				header('location:../../?page=login/index.php');
 				}
     		}
     	}

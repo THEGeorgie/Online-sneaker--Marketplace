@@ -29,19 +29,6 @@
 						<label>Lastname</label>
 						<input type="text" name="lastname" class="form-control" required="required" />
 					</div>
-					<label>Is this a sellers account?</label>
-					<div class="form-check">
-						<input class="form-check-input" type="radio" name="is_seller" value="1">
-						<label class="form-check-label" for="flexRadioDefault1">
-							yes
-						</label>
-					</div>
-					<div class="form-check">
-						<input class="form-check-input" type="radio" name="is_seller" value="2">
-						<label class="form-check-label" for="flexRadioDefault1">
-							no
-						</label>
-					</div>
 					<?php
     					//checking if the session 'success' is set.
     					if(ISSET($_SESSION['success'])){
@@ -66,8 +53,9 @@
 									unset($_SESSION['error']);
 									}
 							?>
-					<button class="btn btn-primary btn-block" name="register"><span
+					<button class="btn btn-outline-light btn-block mt-3" name="register"><span
 							class="glyphicon glyphicon-save"></span> Register</button>
+							<p>When you create an account the website will generate a sellers and a buyers profile.</p>
 				</form>
 			</div>
 		</div>

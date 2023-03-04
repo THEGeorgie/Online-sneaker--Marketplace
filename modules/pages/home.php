@@ -18,25 +18,23 @@
     				}
     		?>
 
-		<div class="row row-cols-1 row-cols-md-3 g-4">
-			<div class="col">
-				<?php foreach($postSnkr as $rows => $postSnkr) { ?>
-				<div class="card">
+		<div class="row justify-content-center">
+		<?php foreach($postSnkr as $rows => $postSnkr) { ?>
+			<div class="col-sm-12 col-md-6 col-lg-3 m-3">
+				<div class="card bg-custom-1 text-center">
 					<?php echo("<img src='assets/img/snkrs/".$postSnkr['slika']."'>");?>
 					<div class="card-body">
 						<h5 class="card-title"><?php echo($postSnkr['model'])?></h5>
 						<h6 class="card-subtitle mb-2 text-muted"><?php echo($postSnkr['barva'])?></h6>
-						<ul class="list-group list-group-flush">
+						<ul class="list-group list-group-flush bg-custom-1">
 							<li class="list-group-item">Releas date: <?php echo($postSnkr['datum_izdaje']);?>
 							</li>
-							<li class="list-group-item">Size: <?php echo($postSnkr['velikost']);?></li>
-							<li class="list-group-item">Price: <?php echo($postSnkr['cena']);?></li>
 						</ul>
-						<a href="/?page=checkout&id=<?php echo($postSnkr['tensike_id'])?>" class="btn btn-primary">Buy</a>
+						<a href="/?page=teniska&id=<?php echo($postSnkr['teniske_id'])?>" class="btn btn-outline-light mt-2">View</a>
 					</div>
 				</div>
-				<?php } ?>
 			</div>
+			<?php } ?>
 		</div>
 	</div>
 

@@ -35,17 +35,14 @@
                         include_once("modules/pages/home.php");
                         break;
                     default:
-                        # code...
-                        break;
-             
-                    }
-
                     if ($_GET['page'] == 'create_post') {
                         include_once('modules/pages/create_post.php');
                     }elseif ( $_GET['page'] == 'profile') {
                         include_once('modules/pages/profile.php');
                     }elseif ($_GET['page'] == 'checkout') {
                         include_once("modules/pages/checkout.php");
+                    }elseif ($_GET['page'] == 'teniska') {
+                        include_once("modules/pages/teniska.php");
                     }else {
                         if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
                             include_once("modules/pages/home.php");
@@ -54,6 +51,11 @@
                             include_once("modules/pages/login.php");
                         }
                     }
+                        break;
+             
+                    }
+
+                    
             }
             ?>
         </div>

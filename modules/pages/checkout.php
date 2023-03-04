@@ -2,7 +2,7 @@
     require_once('connection.php');
     if (isset($_GET['id'])) {
         $SnkrId = $_GET['id'];
-        $sql = "SELECT * From 'Teniske' WHERE tensike_id = '$SnkrId'";
+        $sql = "SELECT * From 'Prod_teniske' WHERE pr_id = '$SnkrId'";
 	    $stmt_postHomePage = $conn->query($sql);
 	    $postSnkr = $stmt_postHomePage->fetchAll(PDO::FETCH_ASSOC);
 

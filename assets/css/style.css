@@ -117,3 +117,35 @@ a:hover {
     text-decoration: none;
     color: inherit;
 }
+
+.card {
+
+    width: 100%;
+    max-width: 400px;
+    padding: 4rem 2.5rem;
+
+    background: rgba(53, 27, 27, 0.15);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.cb2 {
+    background: rgba(53, 27, 27, 0.15);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.bg-custom-1 {
+    background: rgba(53, 27, 27, 0.15)!important;
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37)!important;
+    backdrop-filter: blur(4px)!important;
+    -webkit-backdrop-filter: blur(4px)!important;
+    border-radius: 10px!important;
+    border: 1px solid rgba(255, 255, 255, 0.18)!important;
+}
