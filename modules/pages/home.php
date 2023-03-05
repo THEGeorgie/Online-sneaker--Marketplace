@@ -4,6 +4,8 @@
 	$sql = "SELECT * From 'Teniske'";
 	$stmt_postHomePage = $conn->query($sql);
 	$postSnkr = $stmt_postHomePage->fetchAll(PDO::FETCH_ASSOC);
+	echo ($_SESSION['id']);
+	echo ($_SESSION['seller']);
 ?>
 <section class="p-5">
 	<div class="container-lg shadow">
@@ -30,7 +32,7 @@
 							<li class="list-group-item">Releas date: <?php echo($postSnkr['datum_izdaje']);?>
 							</li>
 						</ul>
-						<a href="/?page=teniska&id=<?php echo($postSnkr['teniske_id'])?>" class="btn btn-outline-light mt-2">View</a>
+						<a href="/?page=sneaker&id=<?php echo($postSnkr['teniske_id'])?>" class="btn btn-outline-light mt-2">View</a>
 					</div>
 				</div>
 			</div>

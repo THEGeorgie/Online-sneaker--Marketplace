@@ -15,10 +15,11 @@
     <div class="row justify-content-center">
         <div class="col-sm-12 col-lg-6 cb2 mx-3">
             <?php foreach($postSnkr as $rows => $postSnkr) {?>
-                <?php echo("<img src='assets/img/snkrs/".$postSnkr['slika']."'>");?>
+                <?php echo("<img class='img-fluid mx-auto' src='assets/img/snkrs/".$postSnkr['slika']."'>");?>
                 <?php }?>
         </div>
-        <div class="col-lg-4 cb2">
+        <div class="col-sm-12 col-lg-4 cb2">
+            <h3 class="text-light text-center">Listings</h3>
             <ul style="list-style-type: none" class="text-light">
             <?php foreach($postSnkrView as $rows => $postSnkrView) {?>
                 <li>
@@ -29,5 +30,6 @@
                 <?php }?>
             </ul>
         </div>
+
     </div>
 </section>

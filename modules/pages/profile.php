@@ -2,7 +2,7 @@
 
 				require_once('connection.php');
 
-			$sqlProfileSnkrs = "SELECT * From 'Teniske' WHERE prod_id ='{$_SESSION['id']}'";
+			$sqlProfileSnkrs = "SELECT * From 'Prod_teniske' WHERE prod_id ='{$_SESSION['id']}'";
 			$stmt_postProfilePage = $conn->query($sqlProfileSnkrs);
 			$postMySnkr = $stmt_postProfilePage->fetchAll(PDO::FETCH_ASSOC);
 

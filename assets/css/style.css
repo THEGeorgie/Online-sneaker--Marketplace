@@ -1,11 +1,11 @@
 body {
     margin: auto;
-    font-family: -apple-system, BlinkMacSystemFont, sans-serif;
     overflow: auto;
     background: linear-gradient(315deg, rgba(148, 22, 127) 3%, rgba(233, 52, 121) 38%, rgba(249, 172, 83) 68%, rgba(246, 46, 151) 78%, rgba(21, 60, 180) 98%);
     animation: gradient 15s ease infinite;
     background-size: 400% 400%;
     background-attachment: fixed;
+    font-family: "Times New Roman", Times, serif;
 }
 
 @keyframes gradient {
@@ -102,7 +102,25 @@ nav a {
     font-size: 17px;
 }
 
+nav button {
+    transition: 0.3s ease;
+    color: white;
+    font-size: 20px;
+    text-decoration: none;
+    border-top: 4px solid transparent;
+    border-bottom: 4px solid transparent;
+    padding: 20px 0;
+    margin: 0 5px;
+    font-size: 17px;
+}
+
 nav a:hover {
+    border-top: 4px solid white;
+    border-bottom: 4px solid white;
+    padding: 6px 0;
+}
+
+nav button:hover {
     border-top: 4px solid white;
     border-bottom: 4px solid white;
     padding: 6px 0;
@@ -114,6 +132,12 @@ nav a:hover {
 
 a,
 a:hover {
+    text-decoration: none;
+    color: inherit;
+}
+
+button,
+button:hover {
     text-decoration: none;
     color: inherit;
 }
@@ -149,3 +173,5 @@ a:hover {
     border-radius: 10px!important;
     border: 1px solid rgba(255, 255, 255, 0.18)!important;
 }
+
+

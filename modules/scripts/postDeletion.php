@@ -25,24 +25,24 @@
         $stmt_delet->bindParam(':deletAddress', $deletAddress);
         if ($stmt_delet->execute()) {
             $_SESSION['success'] = "Successfully deleted a post";
-            header('location:../pages/profile.php');
+            header('location:../../index.php?page=profile');
         }else{
             $_SESSION['error'] = "Something went wrong......";
-            header('location:../pages/profile.php');
+            header('location:../../index.php?page=profile');
         }
 
     }elseif (isset($_POST['deletAddress1'])) {
         $deletAddress = $_POST['deletAddress1'];
 
-        $sqlDelete = "DELETE FROM 'naslov_za_posiljanje_prodajalec' WHERE naslov_id = :deletAddress";
+        $sqlDelete = "DELETE FROM 'naslov_za_posiljanje_stranke' WHERE naslov_id = :deletAddress1";
         $stmt_delet = $conn->prepare($sqlDelete);
         $stmt_delet->bindParam(':deletAddress', $deletAddress);
         if ($stmt_delet->execute()) {
             $_SESSION['success'] = "Successfully deleted a post";
-            header('location:../pages/profile.php');
+            header('location:../../index.php?page=profile');
         }else{
             $_SESSION['error'] = "Something went wrong......";
-            header('location:../pages/profile.php');
+            header('location:../../index.php?page=profile');
         }
     }
 ?>

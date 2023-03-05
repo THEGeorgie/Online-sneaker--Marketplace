@@ -37,20 +37,25 @@
                             }
                         ?>
                 <li class="nav-item">
+                    <form method="POST" action="modules/scripts/switchProfile.php">
+                            <button name="switch" class="btn nav-link text-white">【Ｓｗｉｔｃｈ　ａｃｃｏｕｎｔｓ】</button>
+                    </form>
+                </li>
+                <li class="nav-item">
                     <a href="/?logoutLINK=true" class="nav-link text-white">【Ｌｏｇｏｕｔ】</a>
                 </li>
                 <li class="nav-item dropdown me-5">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                            data-bs-toggle="dropdown" aria-expanded="false">
-                            <?php echo($_SESSION['name']);?>
-                        </a>
-                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <?php if ($_SESSION['seller'] == 2) { ?>
-                                <li><a class="dropdown-item " href="/?page=create_post">Create post</a></li>
-                            <?php }?>
-                            <li><a class="dropdown-item" href="/?page=profile">Profile</a></li>
-                        </ul>
-                    </li>
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                        data-bs-toggle="dropdown" aria-expanded="false">
+                        <?php echo($_SESSION['name']);?>
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <?php if ($_SESSION['seller'] == 2) { ?>
+                        <li><a class="dropdown-item " href="/?page=create_post">Create post</a></li>
+                        <?php }?>
+                        <li><a class="dropdown-item" href="/?page=profile">Profile</a></li>
+                    </ul>
+                </li>
 
                 <?php 
                         }

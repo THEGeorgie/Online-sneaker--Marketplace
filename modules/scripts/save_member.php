@@ -42,13 +42,13 @@
 			
     		// Check if the execution of query is success
     		if($stmt->execute() && $stmt1->execute()){
-				$query3 = "SELECT * FROM 'Stranke' WHERE uporabnsiko_Ime = '$username'";
+				$query3 = "SELECT * FROM 'Stranke' WHERE uporabnisko_Ime = '$username'";
 				$linkAccountsC = $conn->query($query3);
 				$linkProfilesC = $linkAccountsC->fetchAll(PDO::FETCH_ASSOC);
 				foreach ($linkProfilesC as $rows => $linkProfilesC) {
 					$linkingC = $linkProfilesC['strank_id'];
 				}
-				$query4 = "SELECT * FROM 'Prodajalec' WHERE uporabnsiko_ime = '$username'";
+				$query4 = "SELECT * FROM 'Prodajalec' WHERE uporabnisko_ime = '$username'";
 				$linkAccountsS = $conn->query($query4);
 				$linkProfilesS = $linkAccountsS->fetchAll(PDO::FETCH_ASSOC);
 				foreach ($linkProfilesS as $rows => $linkProfilesS) {
