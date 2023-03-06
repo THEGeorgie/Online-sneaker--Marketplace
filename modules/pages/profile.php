@@ -2,7 +2,7 @@
 
 				require_once('connection.php');
 
-			$sqlProfileSnkrs = "SELECT * From 'Prod_teniske' WHERE prod_id ='{$_SESSION['id']}'";
+			$sqlProfileSnkrs = "SELECT * From 'v_teniske' WHERE prod_id ={$_SESSION['id']}";
 			$stmt_postProfilePage = $conn->query($sqlProfileSnkrs);
 			$postMySnkr = $stmt_postProfilePage->fetchAll(PDO::FETCH_ASSOC);
 
@@ -24,8 +24,8 @@
 				<form method="POST" action="modules/scripts/postDeletion.php">
 					<ul>
 						<?php foreach($postMySnkr as $rows => $postMySnkr) { ?>
-						<li><?php echo($postMySnkr['model']);?> <button class="btn btn-outline-light btn-block my-3"
-								name="delet" value="<?php echo($postMySnkr['tensike_id'])?>">Delete</button>
+						<li><?php echo($postMySnkr['model']."  Size:".$postMySnkr['stevilka']." Price: ".$postMySnkr['cena']);?> <button class="btn btn-outline-light btn-block my-3"
+								name="delet" value="<?php echo($postMySnkr['pr_id'])?>">Delete</button>
 							<?php } ?>
 					</ul>
 				</form>

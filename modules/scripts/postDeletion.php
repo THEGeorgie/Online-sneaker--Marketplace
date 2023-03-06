@@ -7,15 +7,15 @@
 
         $delet = $_POST['delet'];
         
-        $sqlDelete = "DELETE FROM 'Teniske' WHERE tensike_id = :delet";
+        $sqlDelete = "DELETE FROM 'Prod_teniske' WHERE pr_id = :delet";
         $stmt_delet = $conn->prepare($sqlDelete);
         $stmt_delet->bindParam(':delet', $delet);
-        if ($stmt_delet->execute() && unlink("uploads/".$postSnkr['slika']."")) {
+        if ($stmt_delet->execute()) {
             $_SESSION['success'] = "Successfully deleted a post";
             header('location: profile.php');
         }else{
             $_SESSION['error'] = "Something went wrong......";
-            header('location: profile.php');
+            header('location:../../index.php?page=profile');
         }
     }elseif (isset($_POST['deletAddress'])) {
         $deletAddress = $_POST['deletAddress'];
