@@ -35,7 +35,7 @@
                 $_GET['page'] = "profile";
             }
         }else {
-            $querryS = "INSERT INTO 'Naslov_za_posiljanje_stranka' (adres1, adres2, postna_stevilka, telefonska_stevilka strank_id, Ime, Primek, drzava, mesto) 
+            $querryS = "INSERT INTO 'Naslov_za_posiljanje_stranka' (adress1, adress2, postna_stevilka, telefonska_stevilka, strank_id, Ime, Primek, drzava, mesto) 
             VALUES (:address1, :address2, :postnaStevilka, :mobilanStevilka, :Aid, :ime, :primek, :drzava, :mesto)";
             $stmt_adresS = $conn->prepare($querryS);
             $stmt_adresS->bindParam(':address1', $address1);
@@ -49,7 +49,7 @@
             $stmt_adresS->bindParam(':mesto', $mesto);
             if ($stmt_adresS->execute()) {
                 $_SESSION['success'] = "Adress saved successfully";
-                header('location: profile.php');
+                header('location:../../index.php?page=profile');
             }else{
                 $_SESSION['error'] = "Something went wrong......";
                 header('location: profile.php');
