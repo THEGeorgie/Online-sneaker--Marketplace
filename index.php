@@ -44,7 +44,7 @@
                     }elseif ($_GET['page'] == 'sneaker') {
                         include_once("modules/pages/sneaker.php");
                     }else {
-                        if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
+                        if ( isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
                             include_once("modules/pages/home.php");
             
                         } elseif (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == false) {
