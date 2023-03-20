@@ -18,7 +18,7 @@
         <div class="wave"></div>
         <div class="wave"></div>
         <?php
-        require_once("modules/pages/header.php");
+         require_once("modules/pages/header.php");
         ?>
         <br>
         <div class="container-fluid my-5">
