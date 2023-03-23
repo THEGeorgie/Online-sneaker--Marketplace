@@ -61,7 +61,7 @@
 					<ul>
 						<?php foreach($postMyAddres1 as $rows => $postMyAddres1) { ?>
 						<li>
-							<?php echo($postMyAddres1['Ime']." ".$postMyAddres1['adress1']);?> <button
+							<?php echo($postMyAddres1['Ime']." ".$postMyAddres1['adres1']);?> <button
 								class="btn btn-outline-light btn-block my-3" name="deletAddress1"
 								value="<?php echo($postMyAddres1['naslov_id'])?>">Delete</button>
 						</li>

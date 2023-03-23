@@ -1,28 +1,28 @@
 <?php
-    require_once('connection.php');
-    if (isset($_GET['id'])) {
-        $SnkrId = $_GET['id'];
-        $_SESSION['snId'] = $SnkrId;
-        $sql = "SELECT * From 'v_teniske' WHERE pr_id = $SnkrId";
-	    $stmt_postHomePage = $conn->query($sql);
-	    $postSnkr = $stmt_postHomePage->fetchAll(PDO::FETCH_ASSOC);
+require_once('connection.php');
 
-        $sqlProfileAddress1 = "SELECT * From 'Naslov_za_posiljanje_stranka' WHERE strank_id = {$_SESSION['id']}";
-        $stmt_postAddressPage1 = $conn->query($sqlProfileAddress1);
-        $postMyAddres1 = $stmt_postAddressPage1->fetchAll(PDO::FETCH_ASSOC);
-    }
-	
+if (isset($_GET['id'])) {
+    $SnkrId = $_GET['id'];
+    $_SESSION['snId'] = $SnkrId;
+    $sql = "SELECT * From 'v_teniske' WHERE pr_id = $SnkrId";
+    $stmt_postHomePage = $conn->query($sql);
+    $postSnkr = $stmt_postHomePage->fetchAll(PDO::FETCH_ASSOC);
+
+    $sqlProfileAddress1 = "SELECT * From 'Naslov_za_posiljanje_stranka' WHERE strank_id = {$_SESSION['id']}";
+    $stmt_postAddressPage1 = $conn->query($sqlProfileAddress1);
+    $postMyAddres1 = $stmt_postAddressPage1->fetchAll(PDO::FETCH_ASSOC);
+}
 ?>
-
-
 <section class="p-5 pM">
     <div class="row">
         <div class="col-sm-12 col-lg-8 text-light">
             <?php
-                if (!isset($_POST['postSelection'])) {
-                    include_once("checkoutForm/selectionInfo.php");
-                }elseif(isset($_GET['orderSubmition']) && $_GET['orderSubmition'] === 'submitOrder'){
+                if(isset($_GET['orderSubmition']) && $_GET['orderSubmition'] === 'pendingOrder'){
                     include_once("checkoutForm/submitOrder.php");
+                }elseif (!isset($_POST['postSelection']) && !empty($postMyAddres1)) {
+                    include_once("checkoutForm/selectionInfo.php");
+                }else{
+                    echo("Please add a address");
                 }
                 
             ?>

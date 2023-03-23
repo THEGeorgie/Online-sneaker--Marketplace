@@ -38,6 +38,10 @@
 		<?php
     					unset($_SESSION['success']);
     				}
+					if(count($_COOKIE) > 0) {
+					  } else {
+						echo "Cookies are disabled.";
+					  }
     		?>
 
 		<div class="row justify-content-center">

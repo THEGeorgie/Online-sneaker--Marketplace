@@ -34,11 +34,11 @@
     }elseif (isset($_POST['deletAddress1'])) {
         $deletAddress = $_POST['deletAddress1'];
 
-        $sqlDelete = "DELETE FROM 'naslov_za_posiljanje_stranke' WHERE naslov_id = :deletAddress1";
+        $sqlDelete = "DELETE FROM 'Naslov_za_posiljanje_stranka' WHERE naslov_id = :deletAddress1";
         $stmt_delet = $conn->prepare($sqlDelete);
-        $stmt_delet->bindParam(':deletAddress', $deletAddress);
+        $stmt_delet->bindParam(':deletAddress1', $deletAddress);
         if ($stmt_delet->execute()) {
-            $_SESSION['success'] = "Successfully deleted a post";
+            $_SESSION['success'] = "Successfully deleted a adress";
             header('location:../../index.php?page=profile');
         }else{
             $_SESSION['error'] = "Something went wrong......";
