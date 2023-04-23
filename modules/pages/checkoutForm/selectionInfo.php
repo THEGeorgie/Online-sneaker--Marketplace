@@ -29,7 +29,7 @@
 
                     <?php }?>
             </select>
-            
+            <input type=hidden name=seller value="<?php echo($seller);?>">
         </div>
         <div class="col-sm-12 col-lg-2 my-3 text-center align-self-end">
             <button class="btn btn-outline-light" name="postSelection" value="<?php echo($SnkrId)?>">【ＮＥＸＴ】</button>

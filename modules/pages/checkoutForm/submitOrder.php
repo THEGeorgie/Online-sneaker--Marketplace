@@ -15,7 +15,7 @@
 
     
 ?>
-<form action="">
+<form method="POST" action="modules/scripts/checkout_process.php">
     <div class="row justify-content-center mx-4">
         <div class="col-4">
             <h3>Confirm order</h3>
@@ -28,6 +28,7 @@
                 }
                 
                 echo ("<h3>Total: $payment €</h3>");
+                echo ("<hp>We don not garantee that the product will be shiped this is at your own risk!!!</hp>");
             ?>
             <button class="btn btn-outline-light" name="confirmOrder" value="<?php echo($SnkrId)?>">【ＣＯＮＦＩＲＭ】</button>
         </div>

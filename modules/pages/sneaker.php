@@ -9,6 +9,9 @@
 	    $stmt_postHomePage = $conn->query($sql);
 	    $postSnkr = $stmt_postHomePage->fetchAll(PDO::FETCH_ASSOC);
 
+        $sqlBuyer = "SELECT * FROM 'povezava_racunov' WHERE strank_id = {$_SESSION['id']}";
+        $stmt_buyer= $conn->query($sqlBuyer);
+	    $isSellerB = $stmt_buyer->fetchAll(PDO::FETCH_ASSOC);
         
     }
     
@@ -24,11 +27,14 @@
             <h3 class="text-light text-center">Listings</h3>
             <ul style="list-style-type: none" class="text-light">
             <?php foreach($postSnkrView as $rows => $postSnkrView) {?>
+                <?php foreach($isSellerB as $rows => $isSellerB) {?>
                 <li>
-                    <?php if ($_SESSION['seller'] == 1) {?> 
-                <a href="?page=checkout&id=<?php echo($postSnkrView['pr_id'])?>" class="btn btn-outline-light my-2">Buy</a>
+                    <?php if ($_SESSION['seller'] == 1 && $postSnkrView['prodano'] == 1 && $isSellerB['prod_id'] != $postSnkrView['prod_id']) {?> 
+                    <a href="?page=checkout&id=<?php echo($postSnkrView['pr_id'])?>" class="btn btn-outline-light my-2">Buy</a>
+                    <?php echo(" Cena:".$postSnkrView['cena']." stevilka ".$postSnkrView['stevilka'])?></li>
                 <?php }?>
-                <?php echo(" Cena:".$postSnkrView['cena']." stevilka ".$postSnkrView['stevilka'])?></li>
+                <?php }?>
+                
                 <?php }?>
             </ul>
         </div>

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
     <meta charset="UTF-8">
@@ -35,29 +36,28 @@
                         include_once("modules/pages/home.php");
                         break;
                     default:
-                    if ($_GET['page'] == 'create_post') {
-                        include_once('modules/pages/create_post.php');
-                    }elseif ( $_GET['page'] == 'profile') {
-                        include_once('modules/pages/profile.php');
-                    }elseif ($_GET['page'] == 'checkout') {
-                        include_once("modules/pages/checkout.php");
-                    }elseif ($_GET['page'] == 'sneaker') {
-                        include_once("modules/pages/sneaker.php");
-                    }else {
-                        if ( isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
-                            include_once("modules/pages/home.php");
-            
-                        } elseif (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == false) {
-                            include_once("modules/pages/login.php");
+                        if ($_GET['page'] == 'create_post') {
+                            include_once('modules/pages/create_post.php');
+                        } elseif ($_GET['page'] == 'profile') {
+                            include_once('modules/pages/profile.php');
+                        } elseif ($_GET['page'] == 'checkout') {
+                            include_once("modules/pages/checkout.php");
+                        } elseif ($_GET['page'] == 'sneaker') {
+                            include_once("modules/pages/sneaker.php");
+                        } elseif ($_GET['page'] == 'listL') {
+                            include_once("modules/pages/profile/listingInfo.php");
+                        } else {
+                            if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
+                                include_once("modules/pages/home.php");
+                            } elseif (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == false) {
+                                include_once("modules/pages/login.php");
+                            }
                         }
-                    }
                         break;
-             
-                    }
-
-                    
+                }
             }
             ?>
-    </div>
+        </div>
 </body>
+
 </html>
