@@ -1,37 +1,68 @@
 <?php
 require_once('connection.php');
-if (isset($_GET['sortby'])) {
-	switch ($_GET['sortby']) {
-		case 'brand':
-			include_once("home/byBrand.php");
-			break;
-		case 'color':
-			include_once("home/byColor.php");
-			break;
-		case 'release':
-			include_once("home/byDate.php");
-			break;
-		default:
-			break;
+if (isset($_POST['submitOrder'])) {
+	if (isset($_POST['sortby'])) {
+		if ($_POST['submitOrder'] == "asc") {
+			switch ($_POST['sortby']) {
+				case 'brand':
+					$sql = "SELECT * From 'Teniske' ORDER BY znamka ASC";
+					break;
+				case 'color':
+					$sql = "SELECT * From 'Teniske' ORDER BY barva ASC";
+					break;
+				case 'release':
+					$sql = "SELECT * From 'Teniske' ORDER BY datum_izdaje ASC";
+					break;
+				default:
+					break;
+			}
+		} else {
+			switch ($_POST['sortby']) {
+				case 'brand':
+					$sql = "SELECT * From 'Teniske' ORDER BY znamka DESC";
+					break;
+				case 'color':
+					$sql = "SELECT * From 'Teniske' ORDER BY barva DESC";
+					break;
+				case 'release':
+					$sql = "SELECT * From 'Teniske' ORDER BY datum_izdaje DESC";
+					break;
+				default:
+					break;
+			}
+		}
 	}
-}else {
-	include_once("home/default.php");
+} else {
+	$sql = "SELECT * From 'Teniske'";
 }
+$stmt_postHomePage = $conn->query($sql);
+$postSnkr = $stmt_postHomePage->fetchAll(PDO::FETCH_ASSOC);
 
 ?>
 
 <div class="container-sm shadow">
-	<div class="dropdown">
-		<button class="btn btn-outline-light dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-			Filter By
-		</button>
-		<ul class="dropdown-menu">
-			<li><a class="dropdown-item" href="../../index.php?page=home&sortby=brand">Brand</a></li>
-			<li><a class="dropdown-item" href="../../index.php?page=home&sortby=color">Color way</a></li>
-			<li><a class="dropdown-item" href="../../index.php?page=home&sortby=release">Release date</a></li>
-		</ul>
-	</div>
-	<!-- <a href="../../index.php?page=home&sortby=color">price</a> -->
+	<form method="POST" action="">
+		<div class="row">
+			<div class="col-2">
+				<select class="form-select" name="sortby" id="">
+					<option selected value="brand">Brand</option>
+					<option value="color">Color way</option>
+					<option value="release">Release date</option>
+				</select>
+			</div>
+			<div class="col-2">
+				<div class="dropdown">
+					<button class="btn btn-outline-light dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+						Order By
+					</button>
+					<ul class="dropdown-menu">
+						<button class="dropdown-item" name="submitOrder" value="asc">Ascending</button>
+						<button class="dropdown-item" name="submitOrder" value="desc">Descending</button>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</form>
 </div>
 <section class="p-5">
 	<div class="container-lg shadow">
